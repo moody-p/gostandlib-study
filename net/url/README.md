@@ -13,7 +13,7 @@ scheme://[userinfo]@[host]:[port]/path?key1=value1&key2=value2#fragment
     port 服务端口， 一般端口表示提供了某项服务
     path 主机上的目录
     ？后的问query信息， key1=value1是表示key值和value值， &是连接符
-    # 后面的是fragment信息
+    ‘#’ 后面的是fragment信息
 - 问题3： URL如何处理非ascii编码？
     非ascii编码，使用%后跟两位16进制数表示，如%AB
     URL中不能有空格， 空格用“+”表示。
