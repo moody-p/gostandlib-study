@@ -14,7 +14,7 @@ json有两种类型的数据，用go语言来描述这两种类型：
 ## golang如何处理json
 golang标准库encoding/json是用来处理json数据的，它有两组函数或者方法来处理json数据。
 
-|| 函数名    | 输入         | 输出        | 描述                        |
+| 函数名    | 输入         | 输出        | 描述                        |
 | :-------- | :------------- | :------------ | :------------------------: |
 | Marshal   | v interface{} | []byte, error | 编码v成json数据     To Json  |
 | Unmarshal | []byte, v(指针) | error      | 解码json，储存在v中 From Json |
