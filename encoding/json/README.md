@@ -45,7 +45,7 @@ Employee info:
 Source | Destination
 ------ | ---------
 < | \u003c
-> | \u003e
+| > | \u003e
 & | \u0026
 \u+2028 | \u2028
 \u+2029 | \u2029
