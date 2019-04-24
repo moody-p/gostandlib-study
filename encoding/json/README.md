@@ -14,11 +14,11 @@ json有两种类型的数据，用go语言来描述这两种类型：
 ## golang如何处理json
 golang标准库encoding/json是用来处理json数据的，它有两组函数或者方法来处理json数据。
 | 函数名    | 输入         | 输出        | 描述                        |
-|:---------|:-------------|:------------|:--------------------------:|
-|Marshal   |v interface{} |[]byte, error|编码v成json数据     To Json  |
-|Unmarshal |[]byte, v(指针)| error      |解码json，储存在v中 From Json|
-|Encode    |v interface{}  | error      | 编码v成json数据 输出到 io.Writer|
-|Decode    |v (指针)       | error       | 解码json， 输入来自io.Reader |
+| :-------- | :------------- | :------------ | :------------------------: |
+| Marshal   | v interface{} | []byte, error | 编码v成json数据     To Json  |
+| Unmarshal | []byte, v(指针) | error      | 解码json，储存在v中 From Json |
+| Encode    | v interface{}  | error     | 编码v成json数据 输出到 io.Writer |
+| Decode    | v (指针)       | error       | 解码json， 输入来自io.Reader |
 ### 编码
 ### 解码
 ### 辅助函数
@@ -42,13 +42,13 @@ Employee info:
 **func HTMLEscape(dst *bytes.Buffer, src []byte)**
 
 我们知道<,>,&在html的语法中有自己的意义，如果我们编码的json中有这些字符，html的<script></script>使用json数据，这容易引起页面的问题。这个函数就是把这几个字符转化成unicode字符。
-|Source|Destination|
-|------|:---------:|
-|<|\u003c|
-|>|\u003e|
-|&|\u0026|
-|\u+2028|\u2028|
-|\u+2029|\u2029|
+Source | Destination
+------ | ---------
+< | \u003c
+> | \u003e
+& | \u0026
+\u+2028 | \u2028
+\u+2029 | \u2029
 ```
 实例代码：https://github.com/MoonNan/gostandlib-study/blob/master/encoding/json/HTMLEscape-example.go
 // 编码前的数据：
