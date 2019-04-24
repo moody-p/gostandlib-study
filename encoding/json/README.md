@@ -44,7 +44,7 @@ JSON 结构体中TAG
 使用json key来标识这个结构体中的field，对应编码后json中key值。
 omitempty 如果值是false， 0， 空指针，空接口，空数组，空切片，空映射，空字符串，将被忽略。
 “-” 这个field将会被忽略。
-示例代码：https://github.com/MoonNan/gostandlib-study/blob/master/encoding/json/tag-exmple.go
+示例代码：https://github.com/MoonNan/gostandlib-study/blob/master/encoding/json/tag-example.go
 
 其他编码函数： **func MarshalIndent(v interface{}, prefix, indent string) ([]byte, error)**
 格式化编码输出
