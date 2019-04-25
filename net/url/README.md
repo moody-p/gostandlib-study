@@ -31,3 +31,54 @@
   URL中不能有空格， 空格用“+”表示。
 
 ## url 库
+
+我们知道url中不能有空格和非ascii字符。当我们的url path字段中出现这样的字符，我们该如何处理呢。
+
+- url path字段中有空格和非ascii字符
+  
+  **func PathEscape(s string) string**
+  返回的string将是url可以使用的%后跟两位16进制数的形式
+
+- 如何把url中的path字段还原成原始模式
+
+  **func PathUnescape(s string) (string, err)**
+
+```
+    a := "hello, 世界" //contain non-ascii code
+	b := url.PathEscape(a)
+	fmt.Printf("%v\n", b)
+	// Output: hello%2C%20%E4%B8%96%E7%95%8C
+	c, _ := url.PathUnescape(b)
+	fmt.Printf("%v\n", c)
+	// Output: hello, 世界
+```
+Note: path中的空格和非ascii字符使用同样的方式处理。
+
+- query字段中出现非ascii字符和空格如何处理
+  
+  **func QueryEscape(s string) string**
+  **func QueryEscape(s string) (string, error)**
+  Note：空格的处理和path不太一样，' '将会编程'+'
+  示例: https://github.com/MoonNan/gostandlib-study/blob/master/net/url/unicode-example.go
+
+- 如何解析URL
+
+主要通过Parse函数来解析URL地址。
+示例代码：https://github.com/MoonNan/gostandlib-study/blob/master/net/url/parse-example.go
+
+- 如何处理Query 数据
+
+Query字段可以通过ParseQuery函数来处理。ParseQuery根据传入的字符串，生成一个Values字典。
+```
+type Values map[string][]string
+```
+方法：
+Encode 把Values生成字符串
+Get Set Del Add
+示例代码：https://github.com/MoonNan/gostandlib-study/blob/master/net/url/query-example.go
+
+- 如何处理userinfo
+
+type Userinfo用来处理用户数据
+User和UserPassword函数生成Userinfo 结构体
+方法：Userinfo Password Username
